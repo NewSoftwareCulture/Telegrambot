@@ -1,11 +1,12 @@
-# import telebot
-# import requests
-# import time
-# import config
+import telebot
+import requests
+import time
+import config
 
 # bot = telebot.TeleBot(config.token)
-print("Hello world")
 
-# bot.send_message(config.channel_name, 'hello')
-
+# @bot.message_handler(commands=['start'])
+# def start_message(message):
+#     bot.send_message(message.chat.id, 'Привет, ты написал мне /start')
+print('Hello')
 # bot.polling()
