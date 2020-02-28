@@ -2,14 +2,9 @@ import telebot
 import requests
 import time
 import config
-import extras
 
 bot = telebot.TeleBot(config.token)
 
-
-
-# def start_message(message):
-    # bot.send_message(message.chat.id, 'Я твой бот, привет')
 
 while True:
     try:
