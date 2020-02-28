@@ -7,5 +7,7 @@ bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_message(message.chat.id, 'Привет, ты написал мне /start')
+    bot.send_message(message.chat.id, 'Я твой бот, привет')
+# def start_message(message):
+    # bot.send_message(message.chat.id, 'Я твой бот, привет')
 bot.polling()
