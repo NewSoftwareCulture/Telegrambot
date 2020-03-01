@@ -6,9 +6,8 @@ import actions
 def main():
     while True:
         try:
-            actions.start_mes()
-
-            actions.message_usr()
+            actions.commands()
+            actions.messages()
 
             bot.infinity_polling(True) 
 
