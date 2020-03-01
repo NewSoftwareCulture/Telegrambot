@@ -1,46 +1,20 @@
-import telebot
 import requests
-import time
-import config
+from bot_config import bot
+from bot_config import channel_name
 import actions
 
-bot = telebot.TeleBot(config.token)
+def main():
+    while True:
+        try:
+            actions.start_mes()
 
+            actions.message_usr()
 
-# @bot.message_handler(commands=['start'])
-# def start_command(message):
-#     bot.send_message(message.chat.id, 'Лучше бы я пошел с мастером Люком, чем торчал здесь с тобой. Уж не знаю в чём дело, но уверен, что в этом есть твоя вина!')
+            bot.infinity_polling(True) 
 
-# @bot.message_handler(content_types=['text'])
-# def messages(message):
-#     if message.text.lower() == 'hi':
-#         bot.send_message(message.chat.id, 'Здарова, я твой бот, бро')
-#     elif message.text.lower() == 'action':
-#         bot.send_message(message.chat.id, 'Да я многое могу')
-#     elif message.text.lower() == 'finish':
-#         bot.send_message(message.chat.id, 'Пока, чел')  
-# bot.send_message(config.channel_name, '///////')         
-# bot.polling()
+        except Exception as e:
+            print(e)  # или просто print(e) если у вас логгера нет,
+            bot.send_message(channel_name, e) 
 
-
-while True:
-    try:
-        @bot.message_handler(commands=['start'])
-        def start_command(message):
-            bot.send_message(message.chat.id, 'Лучше бы я пошел с мастером Люком, чем торчал здесь с тобой. Уж не знаю в чём дело, но уверен, что в этом есть твоя вина!')
-     
-        @bot.message_handler(content_types=['text'])
-        def messages(message):
-            if message.text.lower() == 'hi':
-                bot.send_message(message.chat.id, 'Здарова, я твой бот, бро')
-            elif message.text.lower() == 'action':
-                bot.send_message(message.chat.id, 'Да я многое могу')
-            elif message.text.lower() == 'finish':
-                bot.send_message(message.chat.id, 'Пока, чел')  
-        bot.polling(none_stop=True)
-
-    except Exception as e:
-        print(e)  # или просто print(e) если у вас логгера нет,
-        bot.send_message(config.channel_name, e) 
-        # или import traceback; traceback.print_exc() для печати полной инфы
-        # time.sleep(1)
+if __name__ == '__main__':
+    main()
