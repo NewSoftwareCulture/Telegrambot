@@ -1,4 +1,4 @@
-import requests
+# import requests
 from bot_config import bot
 from bot_config import channel_name
 import actions
