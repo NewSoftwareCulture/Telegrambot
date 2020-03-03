@@ -6,7 +6,7 @@ url = 'https://weather.com/ru-RU/weather/today/l/RSXX0063:1:RS'
 
 def get_html(url):
     r = requests.get(url)    
-    r.encoding = 'utf8'      
+    r.encoding = 'utf8'
     return r.text            
 
 def get_temperature(html):
