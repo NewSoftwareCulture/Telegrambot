@@ -1,6 +1,6 @@
 from bot_config import bot
 
-def commands():
+def functions():
     @bot.message_handler(
         commands=['start'], 
     )
@@ -11,4 +11,4 @@ def commands():
         commands=['menu'], 
     )
     def func_menu(message):
-        bot.send_message(message.chat_id, "Напиши 'ID' для получения своего id\nМожешь написать 'привет' и я поздароваюсь с тобой")
+        bot.send_message(message.chat.id, "Напиши 'ID' для получения своего id\nМожешь написать 'привет' и я поздороваюсь с тобой")

@@ -8,8 +8,8 @@ import actions.messages as messages
 def main():
     while True:
         try:
-            commands()
-            messages()
+            commands.functions()
+            messages.functions()
             
             bot.infinity_polling(True) 
 

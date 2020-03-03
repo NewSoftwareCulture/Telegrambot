@@ -1,6 +1,6 @@
 from bot_config import bot
 
-def messages():
+def functions():
     @bot.message_handler(
         content_types=['text'],
     )
