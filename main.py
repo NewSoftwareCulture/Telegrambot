@@ -1,13 +1,15 @@
 # import requests
 from bot_config import bot
 from bot_config import channel_name
-import actions
+import actions.commands as commands
+import actions.messages as messages
+
 
 def main():
     while True:
         try:
-            actions.commands()
-            actions.messages()
+            commands()
+            messages()
             
             bot.infinity_polling(True) 
 
