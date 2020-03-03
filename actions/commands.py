@@ -17,7 +17,7 @@ def functions():
     @bot.message_handler(
         commands=['anon'], 
     )
-    def func_menu(message):
+    def func_anon(message):
         if message.chat.id > 0:
             message.text = message.text.replace('/anon ', '')
             bot.send_message(chat_name, message.text)
