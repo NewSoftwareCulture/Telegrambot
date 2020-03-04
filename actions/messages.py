@@ -1,5 +1,5 @@
 from bot_config import bot
-from actions.get_gismeteo import weather
+from actions.get_weather import weather
 
 def functions():
     @bot.message_handler(
