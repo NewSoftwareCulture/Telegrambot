@@ -1,5 +1,5 @@
 from bot_config import bot
-from actions.get_gismeteo import date
+from actions.get_gismeteo import weather
 
 def functions():
     @bot.message_handler(
@@ -11,4 +11,4 @@ def functions():
         if message.text.lower().find('id') > -1:
             bot.send_message(message.chat.id, "Твой ID: " + str(message.from_user.id))
         if message.text.lower() == 'погода':
-            bot.send_message(message.chat.id, date)
+            bot.send_message(message.chat.id, weather())

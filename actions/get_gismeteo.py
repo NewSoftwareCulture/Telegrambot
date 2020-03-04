@@ -27,6 +27,7 @@ def get_speed(html):
 def get_date(temp, wether, speed):
     return "Погода в Москве сейчас:\n" + str(temp) + "°, " + str(wether) + "\nВетер " + str(round(float(speed)/3.6, 2)) + " м/с"
 
-page = get_html(url)
-html = BeautifulSoup(page, 'lxml')
-date = get_date(get_temperature(html), get_weather(html), get_speed(html))
+def weather():
+    page = get_html(url)
+    html = BeautifulSoup(page, 'lxml')
+    return get_date(get_temperature(html), get_weather(html), get_speed(html))
