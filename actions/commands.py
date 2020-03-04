@@ -1,5 +1,7 @@
 from bot_config import bot
 from bot_config import chat_name
+from keyboards import menu_main
+from keyboards import menu_Aliance
 
 def functions():
     @bot.message_handler(
@@ -12,7 +14,7 @@ def functions():
         commands=['menu'], 
     )
     def func_menu(message):
-        bot.send_message(message.chat.id, "Напиши 'ID' для получения своего id\nМожешь написать 'привет' и я поздороваюсь с тобой")
+        bot.send_message(message.chat.id, '1 sec', reply_markup=menu_main)
 
     @bot.message_handler(
         commands=['anon'], 
@@ -21,3 +23,5 @@ def functions():
         if message.chat.id > 0:
             message.text = message.text.replace('/anon ', '')
             bot.send_message(chat_name, message.text)
+            bot.send_photo(chat_name, message)
+            bot.send_poll(chat_name, message)
