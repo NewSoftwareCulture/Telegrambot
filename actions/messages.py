@@ -21,7 +21,7 @@ def functions():
         elif message.text == 'Истра 🌍':
             bot.send_message(message.chat.id, istra(), reply_markup=keyboards.menu_main)
         elif message.text == 'Тольятти 🌍':
-            bot.send_message(message.chat.id, tlt()), reply_markup=keyboards.menu_main
+            bot.send_message(message.chat.id, tlt(), reply_markup=keyboards.menu_main)
         elif message.text == 'Питер 🌍':
             bot.send_message(message.chat.id, spb(), reply_markup=keyboards.menu_main)
         elif message.text.lower() == 'aliance':
