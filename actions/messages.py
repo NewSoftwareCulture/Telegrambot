@@ -17,13 +17,13 @@ def functions():
         elif message.text.lower() == 'погода':
             bot.send_message(message.chat.id, 'Выбери город', reply_markup=keyboards.menu_weather)
         elif message.text == 'Москва 🌍':
-            bot.send_message(message.chat.id, moskow())
+            bot.send_message(message.chat.id, moskow(), reply_markup=keyboards.menu_main)
         elif message.text == 'Истра 🌍':
-            bot.send_message(message.chat.id, istra())
+            bot.send_message(message.chat.id, istra(), reply_markup=keyboards.menu_main)
         elif message.text == 'Тольятти 🌍':
-            bot.send_message(message.chat.id, tlt())
+            bot.send_message(message.chat.id, tlt()), reply_markup=keyboards.menu_main
         elif message.text == 'Питер 🌍':
-            bot.send_message(message.chat.id, spb())
+            bot.send_message(message.chat.id, spb(), reply_markup=keyboards.menu_main)
         elif message.text.lower() == 'aliance':
             bot.send_message(message.chat.id, 'За Альянс!', reply_markup=keyboards.menu_Aliance)
         elif message.text.lower() == 'horge':
