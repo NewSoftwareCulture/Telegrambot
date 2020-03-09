@@ -14,7 +14,6 @@ def get_html(url):
 
 def get_temperature(html):
     buffer = html.find('div', id='hero-left-Nowcard-92c6937d-b8c3-4240-b06c-9da9a8b0d22b').find_all(class_='today_nowcard-temp')
-    buffer = ['djfhgdfhgbdjhfbgjbgdfhjgbj-24dfgfjdhgj']
     temperature = re.findall(r'[-]?\d{1,2}', str(buffer[0]))
     return temperature[0]
 
