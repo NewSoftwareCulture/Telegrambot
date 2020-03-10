@@ -2,7 +2,7 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
-url_moskow = 'https://weather.com/ru-RU/weather/today/l/RSXX0063:1:RS'
+url_moskow = 'https://weather.com/ru-RU/weather/today/l/34f2aafc84cff75ae0b014754856ea5e7f8ddf618cf9735549dfb5e016c28e10'
 url_istra = 'https://weather.com/ru-RU/weather/today/l/9eb64ebb0b188368bfd85f2f21287b6414b49868940baa954cc82970817b77f9'
 url_tlt = 'https://weather.com/ru-RU/weather/today/l/d3d7d67737fa39fe26c8dfc95f4ab93e28993b68f320492bbad7a4f2eb7d958d'
 url_spb = 'https://weather.com/ru-RU/weather/today/l/4edb4827c7f66b1542f84ce1d8d644970e9b935d45d21d4d143e87d94925a4bf'
