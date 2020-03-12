@@ -1,7 +1,6 @@
 from bot_config import bot
 from bot_config import chat_name
 from keyboards import menu_main
-from keyboards import menu_Aliance
 
 def functions():
     @bot.message_handler(

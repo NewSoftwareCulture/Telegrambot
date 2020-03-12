@@ -1,8 +1,6 @@
 from bot_config import bot
-from actions.get_weather import moskow
-from actions.get_weather import spb
-from actions.get_weather import istra
-from actions.get_weather import tlt
+from actions.get_weather import moskow, spb, istra, tlt
+from actions.get_MockowCentralRing import Lushniki, DelovoyCenter
 import keyboards
 
 def functions():
@@ -14,7 +12,8 @@ def functions():
             bot.send_message(message.chat.id, "Привет, @" + message.from_user.username + ", я тут местный бот")
         elif message.text.lower().find('id') > -1:
             bot.send_message(message.chat.id, "Твой ID: " + str(message.from_user.id))
-        elif message.text.lower() == 'погода':
+        
+        elif message.text.lower() == 'погода 🌍':
             bot.send_message(message.chat.id, 'Выбери город', reply_markup=keyboards.menu_weather)
         elif message.text == 'Москва 🌍':
             bot.send_message(message.chat.id, moskow(), reply_markup=keyboards.menu_main)
@@ -24,7 +23,17 @@ def functions():
             bot.send_message(message.chat.id, tlt(), reply_markup=keyboards.menu_main)
         elif message.text == 'Питер 🌍':
             bot.send_message(message.chat.id, spb(), reply_markup=keyboards.menu_main)
-        elif message.text.lower() == 'aliance':
-            bot.send_message(message.chat.id, 'За Альянс!', reply_markup=keyboards.menu_Aliance)
-        elif message.text.lower() == 'horge':
-            bot.send_message(message.chat.id, "Lok'tar Ogar", reply_markup=keyboards.menu_Horge)
+
+        elif message.text == 'Электрички 🚇':
+            bot.send_message(message.chat.id, 'Выбери направление', reply_markup=keyboards.menu_ElectrincTrain)
+        elif message.text == 'МЦК 🚇':
+            bot.send_message(message.chat.id, 'Выбери направление', reply_markup=keyboards.menu_MoskowCentralRing)
+        elif message.text == 'Лужники 🚇':
+            bot.send_message(message.chat.id, Lushniki(), reply_markup=keyboards.menu_main)
+        elif message.text == 'Деловой центр 🚇':
+            bot.send_message(message.chat.id, DelovoyCenter(), reply_markup=keyboards.menu_main)
+        # elif message.text == 'На Истру 🚇':
+        #     bot.send_message(message.chat.id, tlt(), reply_markup=keyboards.menu_main)
+        # elif message.text == 'На Москву 🚇':
+        #     bot.send_message(message.chat.id, spb(), reply_markup=keyboards.menu_main)
+    
