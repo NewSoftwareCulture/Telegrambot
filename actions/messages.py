@@ -16,22 +16,28 @@ def functions():
         elif message.text.lower() == 'погода 🌍':
             bot.send_message(message.chat.id, 'Выбери город', reply_markup=keyboards.menu_weather)
         elif message.text == 'Москва 🌍':
-            bot.send_message(message.chat.id, moskow(), reply_markup=keyboards.menu_main)
+            if message.chat.id > 0: bot.send_message(message.chat.id, moskow(), reply_markup=keyboards.menu_main_bot)
+            else: bot.send_message(message.chat.id, moskow(), reply_markup=keyboards.menu_main)
         elif message.text == 'Истра 🌍':
-            bot.send_message(message.chat.id, istra(), reply_markup=keyboards.menu_main)
+            if message.chat.id > 0: bot.send_message(message.chat.id, istra(), reply_markup=keyboards.menu_main_bot)
+            else: bot.send_message(message.chat.id, istra(), reply_markup=keyboards.menu_main)
         elif message.text == 'Тольятти 🌍':
-            bot.send_message(message.chat.id, tlt(), reply_markup=keyboards.menu_main)
+            if message.chat.id > 0: bot.send_message(message.chat.id, tlt(), reply_markup=keyboards.menu_main_bot)
+            else: bot.send_message(message.chat.id, tlt(), reply_markup=keyboards.menu_main)
         elif message.text == 'Питер 🌍':
-            bot.send_message(message.chat.id, spb(), reply_markup=keyboards.menu_main)
+            if message.chat.id > 0: bot.send_message(message.chat.id, spb(), reply_markup=keyboards.menu_main_bot)
+            else: bot.send_message(message.chat.id, spb(), reply_markup=keyboards.menu_main)
 
         elif message.text == 'Электрички 🚇':
             bot.send_message(message.chat.id, 'Выбери направление', reply_markup=keyboards.menu_ElectrincTrain)
         elif message.text == 'МЦК 🚇':
             bot.send_message(message.chat.id, 'Выбери направление', reply_markup=keyboards.menu_MoskowCentralRing)
         elif message.text == 'Лужники 🚇':
-            bot.send_message(message.chat.id, Lushniki(), reply_markup=keyboards.menu_main)
+            if message.chat.id > 0: bot.send_message(message.chat.id, Lushniki(), reply_markup=keyboards.menu_main_bot)
+            else: bot.send_message(message.chat.id, Lushniki(), reply_markup=keyboards.menu_main)
         elif message.text == 'Деловой центр 🚇':
-            bot.send_message(message.chat.id, DelovoyCenter(), reply_markup=keyboards.menu_main)
+            if message.chat.id > 0: bot.send_message(message.chat.id, DelovoyCenter(), reply_markup=keyboards.menu_main_bot)
+            else: bot.send_message(message.chat.id, DelovoyCenter(), reply_markup=keyboards.menu_main)
         # elif message.text == 'На Истру 🚇':
         #     bot.send_message(message.chat.id, tlt(), reply_markup=keyboards.menu_main)
         # elif message.text == 'На Москву 🚇':
