@@ -1,6 +1,6 @@
 from bot_config import bot
 from actions.get_weather import moskow, spb, istra, tlt
-from actions.get_MockowCentralRing import Lushniki, DelovoyCenter
+from actions.get_MoskowCentralRing import Lushniki, DelovoyCenter
 import keyboards
 
 def functions():
