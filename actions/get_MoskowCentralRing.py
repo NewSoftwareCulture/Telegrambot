@@ -50,7 +50,8 @@ def format(location, header, table):
 
 def Lushniki():
     html = get_html(url_Lushniki)
-    return format('Лужники', get_header(html), get_table(html))
+    return html
+    #format('Лужники', get_header(html), get_table(html))
 
 
 def DelovoyCenter():
