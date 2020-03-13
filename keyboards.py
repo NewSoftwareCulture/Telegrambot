@@ -1,7 +1,7 @@
 import telebot
 
 menu_main = telebot.types.ReplyKeyboardMarkup(True, False)
-menu_main.row('ID', 'Погода 🌍')
+menu_main.row('ID', 'Погода 🌍', '123')
 menu_main.row('Электрички 🚇', 'МЦК 🚇')
 
 menu_weather = telebot.types.ReplyKeyboardMarkup(True, False)
