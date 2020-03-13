@@ -38,9 +38,9 @@ def get_table(html):
         i += 1
     return table
 
-def format(data):
+def format(location, data):
     i = 0
-    result = ''
+    result = location + '\n'
     while i < 5:
         result += data[1][i] + ' (' + data[0][i] + ')'
         if i < 4: result += '\n'
@@ -50,9 +50,9 @@ def format(data):
 
 def Lushniki():
     html = get_html(url_Lushniki)
-    return format([get_header(html), get_table(html)])
+    return format('Лужники', [get_header(html), get_table(html)])
 
 
 def DelovoyCenter():
     html = get_html(url_DelovoyCenter)
-    return format([get_header(html), get_table(html)])
+    return format('Деловой центр', [get_header(html), get_table(html)])
