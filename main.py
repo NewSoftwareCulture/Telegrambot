@@ -1,8 +1,8 @@
-# import requests
 from bot_config import bot
 from bot_config import channel_name
 import actions.commands as commands
 import actions.messages as messages
+import actions.callback as callback
 
 
 def main():
