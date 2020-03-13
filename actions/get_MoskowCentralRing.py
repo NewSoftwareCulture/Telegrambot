@@ -19,7 +19,7 @@ def get_header(html):
         if len(time) == 2:
             header[i] = 'через ' + time[0] + ' ч. ' + time[1] + ' мин.'
         else:
-            header[i] = 'через ' + time[1] + ' минут'
+            header[i] = 'через ' + time[0] + ' минут'
         i += 1
     return header
 
@@ -50,8 +50,7 @@ def format(location, header, table):
 
 def Lushniki():
     html = get_html(url_Lushniki)
-    return html
-    #format('Лужники', get_header(html), get_table(html))
+    return format('Лужники', get_header(html), get_table(html))
 
 
 def DelovoyCenter():
