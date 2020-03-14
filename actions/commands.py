@@ -30,8 +30,6 @@ def functions():
         if message.chat.id > 0:
             message.text = message.text.replace('/anon ', '')
             bot.send_message(chat_name, message.text)
-            # bot.send_photo(chat_name, message.photo)
-            # bot.send_poll(chat_name, message)
 
     @bot.message_handler(
         commands=['chat'], 

@@ -4,12 +4,12 @@ import actions.commands as commands
 import actions.messages as messages
 import actions.callback as callback
 
-
 def main():
     while True:
         try:
             commands.functions()
             messages.functions()
+            callback.functions()
             
             bot.infinity_polling(True) 
 

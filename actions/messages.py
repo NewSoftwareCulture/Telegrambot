@@ -29,7 +29,7 @@ def functions():
             else: bot.send_message(message.chat.id, spb(), reply_markup=keyboards.menu_main)
 
         elif message.text == 'Электрички 🚇':
-            bot.send_message(message.chat.id, 'Выбери направление', reply_markup=keyboards.menu_ElectrincTrain)
+            bot.send_message(message.chat.id, 'Вывести расписание полностью?', reply_markup=keyboards.inline_menu_ElectricTrain_main)
         elif message.text == 'МЦК 🚇':
             bot.send_message(message.chat.id, 'Выбери направление', reply_markup=keyboards.menu_MoskowCentralRing)
         elif message.text == 'Лужники 🚇':
@@ -37,9 +37,4 @@ def functions():
             else: bot.send_message(message.chat.id, Lushniki(), reply_markup=keyboards.menu_main)
         elif message.text == 'Деловой центр 🚇':
             if message.chat.id > 0: bot.send_message(message.chat.id, DelovoyCenter(), reply_markup=keyboards.menu_main_bot)
-            else: bot.send_message(message.chat.id, DelovoyCenter(), reply_markup=keyboards.menu_main)
-        # elif message.text == 'На Истру 🚇':
-        #     bot.send_message(message.chat.id, tlt(), reply_markup=keyboards.menu_main)
-        # elif message.text == 'На Москву 🚇':
-        #     bot.send_message(message.chat.id, spb(), reply_markup=keyboards.menu_main)
-    
+            else: bot.send_message(message.chat.id, DelovoyCenter(), reply_markup=keyboards.menu_main)    

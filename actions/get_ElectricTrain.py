@@ -15,7 +15,7 @@ def get_html(url):
     r.encoding = 'utf8'
     return BeautifulSoup(r.text, 'lxml')
 
-def get_table(html):
+def get_table(html, status):
     buffer = html.find_all(class_ = 'desktop__card__yoy03')
     size = 10
     array = ['', '', '', '', '', '', '', '', '', '']
@@ -26,39 +26,38 @@ def get_table(html):
         if len(time_table) != 0 and time_table[0] > time_now and i < size:
             type_train = re.findall(r'\b(Стандарт|Скорый)\b', str(it))
             station = re.findall(r'[А-я]{4,}[ (А-я.]*[ А-я)]*', str(it))
-            array[i] = time_table[0] + " -> " + time_table[1] + ' (' +  type_train[0] + ') \t' + station[2] + ' -> ' + station[3]
+            array[i] = time_table[0] + " -> " + time_table[1] + ' (' +  type_train[0] + ')'
+            if status:  array[i] += '\t' + station[2] + ' -> ' + station[3]
             i += 1
-
     return array
 
 def format(point_A, point_B, array):
     result = point_A + ' -> '+ point_B + '\n'
     for it in array:
         result += it + '\n'
-    result = result[0:-2]
     return result
 
 
-def Streshnevo_Istra():
+def Streshnevo_Istra(status = False):
     html = get_html(url_Streshnevo_Istra)
-    return format('Стрешнево', 'Истра', get_table(html))
+    return format('Стрешнево', 'Истра', get_table(html, status))
 
-def Tushino_Istra():
+def Tushino_Istra(status = False):
     html = get_html(url_Tushino_Istra)
-    return format('Тушино', 'Истра', get_table(html))
+    return format('Тушино', 'Истра', get_table(html, status))
 
-def Dmitrovskaya_Istra():
+def Dmitrovskaya_Istra(status = False):
     html = get_html(url_Dmitrovskaya_Istra)
-    return format('Дмитровская', 'Истра', get_table(html))
+    return format('Дмитровская', 'Истра', get_table(html, status))
 
-def Istra_Streshnevo():
+def Istra_Streshnevo(status = False):
     html = get_html(url_Istra_Streshnevo)
-    return format('Истра', 'Стрешнево', get_table(html))
+    return format('Истра', 'Стрешнево', get_table(html, status))
 
-def Istra_Tushino():
+def Istra_Tushino(status = False):
     html = get_html(url_Istra_Tushino)
-    return format('Истра', 'Тушино', get_table(html))
+    return format('Истра', 'Тушино', get_table(html, status))
 
-def Istra_Dmitrovskaya():
+def Istra_Dmitrovskaya(status = False):
     html = get_html(url_Istra_Dmitrovskaya)
-    return format('Истра', 'Дмитровская', get_table(html))
+    return format('Истра', 'Дмитровская', get_table(html, status))
