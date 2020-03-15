@@ -22,7 +22,7 @@ def functions():
             bot.send_message(message.chat.id, '1 sec', reply_markup=menu_main_bot)
         else:
             bot.send_message(message.chat.id, '1 sec', reply_markup=menu_main)
-
+    
     @bot.message_handler(
         commands=['anon'], 
     )

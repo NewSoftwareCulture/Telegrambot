@@ -22,7 +22,7 @@ def get_table(html, status):
     for it in buffer:
         if i < size:
             time_table = re.findall(r'\d\d:\d\d', str(it))
-            temp = re.findall(r'[А-я]{4,}[ (А-я.]*[ А-я)]*', str(it))
+            temp = re.findall(r'[А-я]{4,}[ (А-я.]*[ А-я)]*[0-9]*[—]?[0-9]*[ А-я]*', str(it))
             type_train = temp[6]
             station_A = temp[1]
             station_B = temp[2]
@@ -36,7 +36,6 @@ def format(point_A, point_B, array):
     for it in array:
         result += it + '\n'
     return result[0:-1]
-
 
 def Streshnevo_Istra(status = False):
     html = get_html(url_Streshnevo_Istra)
