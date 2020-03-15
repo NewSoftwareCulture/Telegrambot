@@ -1,14 +1,13 @@
 import requests
 import re
 from bs4 import BeautifulSoup
-import time
 
-url_Streshnevo_Istra = 'https://www.tutu.ru/rasp.php?st1=36105&st2=37705'
-url_Tushino_Istra = 'https://www.tutu.ru/rasp.php?st1=36305&st2=37705'
-url_Dmitrovskaya_Istra = 'https://www.tutu.ru/rasp.php?st1=35805&st2=37705'
-url_Istra_Streshnevo = 'https://www.tutu.ru/rasp.php?st1=37705&st2=36105'
-url_Istra_Tushino = 'https://www.tutu.ru/rasp.php?st1=37705&st2=36305'
-url_Istra_Dmitrovskaya = 'https://www.tutu.ru/rasp.php?st1=37705&st2=35805'
+url_Streshnevo_Istra = 'https://rasp.yandex.ru/suburban/leningradskaya-platform--istra-platform/today'
+url_Tushino_Istra = 'https://rasp.yandex.ru/suburban/tushino-station--istra-platform/today'
+url_Dmitrovskaya_Istra = 'https://rasp.yandex.ru/suburban/dmitrovskaya--istra-platform/today'
+url_Istra_Streshnevo = 'https://rasp.yandex.ru/suburban/istra-platform--leningradskaya-platform/today'
+url_Istra_Tushino = 'https://rasp.yandex.ru/suburban/istra-platform--tushino-station/today'
+url_Istra_Dmitrovskaya = 'https://rasp.yandex.ru/suburban/istra-platform--dmitrovskaya/today'
 
 def get_html(url):
     r = requests.get(url)    
@@ -16,18 +15,19 @@ def get_html(url):
     return BeautifulSoup(r.text, 'lxml')
 
 def get_table(html, status):
-    buffer = html.find_all(class_ = 'desktop__card__yoy03')
+    buffer = html.find_all(class_ = "SearchSegment SearchSegment_isNotInterval SearchSegment_isNotGone SearchSegment_isVisible")
     size = 10
-    array = ['', '', '', '', '', '', '', '', '', '']
     i = 0
+    array = ['', '', '', '', '', '', '', '', '', '']
     for it in buffer:
-        time_now = str(time.localtime().tm_hour) + ':' + str(time.localtime().tm_min)
-        time_table = re.findall(r'\d\d:\d\d', str(it))
-        if len(time_table) != 0 and time_table[0] > time_now and i < size:
-            type_train = re.findall(r'\b(Стандарт|Скорый)\b', str(it))
-            station = re.findall(r'[А-я]{4,}[ (А-я.]*[ А-я)]*', str(it))
-            array[i] = time_table[0] + " -> " + time_table[1] + ' (' +  type_train[0] + ')'
-            if status:  array[i] += '\t' + station[2] + ' -> ' + station[3]
+        if i < size:
+            time_table = re.findall(r'\d\d:\d\d', str(it))
+            temp = re.findall(r'[А-я]{4,}[ (А-я.]*[ А-я)]*', str(it))
+            type_train = temp[6]
+            station_A = temp[1]
+            station_B = temp[2]
+            array[i] = time_table[0] + " -> " + time_table[1] + ' (' +  type_train + ')'
+            if status: array[i] += '\t' + station_A + ' -> ' + station_B
             i += 1
     return array
 
@@ -35,7 +35,7 @@ def format(point_A, point_B, array):
     result = point_A + ' -> '+ point_B + '\n'
     for it in array:
         result += it + '\n'
-    return result
+    return result[0:-1]
 
 
 def Streshnevo_Istra(status = False):
