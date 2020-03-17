@@ -32,7 +32,7 @@ button_No = types.InlineKeyboardButton(text='No', callback_data='NO')
 inline_menu_ElectricTrain_main.add(button_No, button_Yes)
 
 class CustomKeyboard(types.InlineKeyboardMarkup):
-    def __init__(self, row_width, status=True):
+    def __init__(self, row_width=3, status=True):
         self.row_width = row_width
         self.status = status
         self.keyboard = []
